@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body class="basic-layout">
+    <link rel="stylesheet" href="/css/blog-details.css">
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
+    </nav>
+
+    <main>
+        <section class="blog-section">
+            <article data-th-object="${blog}">
+                <h4 data-th-text="*{title}"></h4>
+                <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                <div data-th-text=" *{description}"></div>
+            </article>
+        </section>
+    </main>
+
+    <footer data-th-replace="~{fragment/basic-fragment :: footer}"></footer>
+</body>
+
+</html>

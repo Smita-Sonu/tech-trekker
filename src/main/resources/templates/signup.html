@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body>
+    <link rel="stylesheet" href="/css/form.css">
+
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <section class="form-section">
+        <h2>Signup</h2>
+        <hr>
+        <form action="/tech-trekker/signup" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="writerName" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="profile-pic">Picture</label>
+                <input type="file" id="profile-pic" name="profilePicture">
+            </div>
+
+            <div class="form-group">
+                <label for="profession">Profession</label>
+                <input type="text" id="profession" name="writerProfession" class="form-control" required>
+            </div>
+
+            <div class="submit-btn text-center">
+                <input type="submit" value="Register">
+            </div>
+
+            <div class="text-right">
+                <a href="/login-page">Signin here</a>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

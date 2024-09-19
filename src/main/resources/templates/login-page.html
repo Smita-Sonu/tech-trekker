@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body>
+    <link rel="stylesheet" href="/css/form.css">
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <section class="form-section">
+        <h2>Signin</h2>
+        <hr>
+        <form action="/login" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="pass" class="form-control" required>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Login">
+            </div>
+
+            <div class="text-right">
+                <a href="/tech-trekker/signup">Signup here</a>
+            </div>
+        </form>
+    </section>
+
+    <div data-th-if="${param.error} != null" class="alert">
+        Invalid credential!
+    </div>
+
+</body>
+
+</html>

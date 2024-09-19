@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body class="basic-layout">
+    <link rel="stylesheet" href="/css/view-all.css">
+    <script src="/js/view-all.js"></script>
+
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
+    </nav>
+
+    <main>
+        <section class="search-section">
+            <form action="/tech-trekker/view-all-search" method="post">
+                <input type="search" placeholder="Search any title..." name="searchTerm"
+                    data-th-value="${response.searchTerm}">
+
+                <input type="hidden" name="category" data-th-value="${param.category}">
+                <button type="submit">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                    Search
+                </button>
+            </form>
+
+        </section>
+
+        <section>
+            <div class="all-blog">
+                <article data-th-each="blog : ${response.blogs}" data-th-object="${blog}">
+                    <div class="img-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                    </div>
+
+                    <div class="details-container">
+                        <h4 data-th-text="*{title}"></h4>
+                        <p data-th-text="*{description}"></p>
+                        <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read more</a>
+                    </div>
+
+                </article>
+            </div>
+            <div class="pagination">
+                <button data-th-disabled="${response.currentPage} == 1"
+                    data-th-onclick="|onPageChange(${response.currentPage}, '-')|">
+                    <span class="material-symbols-outlined">
+                        arrow_back_ios
+                    </span>
+                </button>
+                <p data-th-text="|${response.currentPage} - ${response.totalPage} pages|"></p>
+
+                <button data-th-disabled="${response.currentPage} == ${response.totalPage}"
+                    data-th-onclick="|onPageChange(${response.currentPage}, '+')|">
+                    <span class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer data-th-replace="~{fragment/basic-fragment :: footer}"></footer>
+</body>
+
+</html>

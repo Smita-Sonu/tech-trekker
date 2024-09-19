@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body class="basic-layout">
+    <link rel="stylesheet" href="/css/home/home.css">
+    <link rel="stylesheet" href="/css/home/recent-section.css">
+    <link rel="stylesheet" href="/css/home/frontend-section.css">
+    <link rel="stylesheet" href="/css/home/backend-section.css">
+    <link rel="stylesheet" href="/css/home/database-section.css">
+
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
+    </nav>
+
+    <main data-th-object="${response}">
+        <!-- Recent blogs -->
+        <section class="recent-blog-section">
+            <article data-th-each="blog : *{recentBlogs}" data-th-object="${blog}">
+                <div class="img-container">
+                    <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                </div>
+
+                <div class="details-container">
+                    <p data-th-text="*{title}" class="line-clamp-2"></p>
+                    <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read more</a>
+                </div>
+
+            </article>
+        </section>
+
+        <!-- Frontend blog -->
+        <section id="frontend-section">
+            <h2 class="text-center">Frontend</h2>
+            <div class="frontend-blogs">
+                <article data-th-each="blog : *{frontendBlogs}" data-th-object="${blog}">
+                    <div class="image-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                    </div>
+
+                    <div class="title-container">
+                        <p data-th-text="*{title}" class="line-clamp-2"></p>
+                        <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read more</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="link-container text-right">
+                <a data-th-href="|/tech-trekker/view-all?category=FRONTEND|">View all</a>
+            </div>
+        </section>
+
+        <!-- Backend blog -->
+        <section id="backend-section">
+            <h2 class="text-center">Backend</h2>
+            <div class="backend-blogs">
+                <article data-th-each="blog : *{backendBlogs}" data-th-object="${blog}">
+                    <div class="image-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                    </div>
+
+                    <div class="title-container">
+                        <p data-th-text="*{title}" class="line-clamp-2"></p>
+                        <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read more</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="link-container text-right">
+                <a data-th-href="|/tech-trekker/view-all?category=BACKEND|">View all</a>
+            </div>
+        </section>
+
+        <!-- Database blog -->
+        <section id="database-section">
+            <h2 class="text-center">Database</h2>
+            <div class="database-blogs">
+                <article data-th-each="blog : *{databaseBlogs}" data-th-object="${blog}">
+                    <div class="image-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="...">
+                    </div>
+
+                    <div class="title-container">
+                        <p data-th-text="*{title}" class="line-clamp-2"></p>
+                        <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read more</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="link-container text-right ">
+                <a data-th-href="|/tech-trekker/view-all?category=DATABASE|">View all</a>
+            </div>
+        </section>
+        <footer data-th-replace="~{fragment/basic-fragment :: footer}"></footer>
+    </main>
+</body>
+
+</html>

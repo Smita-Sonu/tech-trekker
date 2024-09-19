@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech trekker</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="/css/base.css">
+
+    <script src="/js/common.js" defer></script>
+</head>
+
+<body>
+    <header data-th-fragment="header">
+        <a href="/tech-trekker/home" class="logo-link">
+            <h1><span class="text-blue">Tech</span>Trekker</h1>
+        </a>
+        <div class="links">
+            <button id="menu-btn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+                <span class="material-symbols-outlined">
+                    account_circle
+                </span>
+            </button>
+
+            <menu class="d-none">
+                <li>
+                    <a href="/writter/create-blog"><span class="material-symbols-outlined">
+                            stylus_note
+                        </span> <span>Write blog</span></a>
+                </li>
+
+                <li data-sec-authorize="!isAuthenticated()">
+                    <a href="/tech-trekker/signup">
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+                        <span>Sign up</span>
+                    </a>
+
+                </li>
+
+                <li data-sec-authorize="isAuthenticated()">
+                    <a href="/logout">
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </menu>
+        </div>
+    </header>
+
+    <nav data-th-fragment="nav">
+        <a href="/tech-trekker/home">Home</a>
+        <a href="/tech-trekker/home#frontend-section">Frontend</a>
+        <a href="/tech-trekker/home#backend-section">Backend</a>
+        <a href="/tech-trekker/home#database-section">Database</a>
+    </nav>
+
+    <footer>
+        <p>All right reserved by &copy; Java Technocrat</p>
+    </footer>
+
+</body>
+
+</html>
